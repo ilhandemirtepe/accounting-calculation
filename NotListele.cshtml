@@ -17,9 +17,6 @@
         outline: none;
         border: none;
     }
-     .gizle{
-        display:none;
-    }
 </style>
 <div class="container">
     <div class="content">
@@ -28,11 +25,12 @@
 
                 <div class="panel panel-warning">
                     <!-- Default panel contents -->
+
                     <div class="panel-heading" style="background-color:#ff6a00;text-align:center;color:#000000">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="col-md-2"> </div>
-                                <div class="col-md-9 text-center" style="font-family:'Segoe Script';font-weight:bolder"> <h4>G & M Food Service</h4> </div>
+                                <div class="col-md-9 text-center" style="font-family:'Segoe Script';font-weight:bolder"> <h4>Lokum Stargate</h4> </div>
 
                                 <div class="col-md-1 text-center">
                                     @Html.ActionLink("Çıkış Yap", "LogOut", "Login", new { @class = "btn btn-primary" })
@@ -42,15 +40,15 @@
                             </div>
                         </div>
                     </div>
-               
+                   
                     <div class="panel-heading" style="background-color:#ff6a00;color:#000000">>>>> LİSTELEME İŞLEMİ </div>
                     <div class="panel-body">
-                        <button type="button" class="btn btn-warning" onclick="location.href='@Url.Action("Ekle", "GMFoodService")'">
+                        <button type="button" class="btn btn-warning" onclick="location.href='@Url.Action("Ekle", "Lokum")'">
                             Gün Sonu Ciroları eklemek için tıklayınız
 
                         </button>
-                        <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Index", "GMFoodService")'">
-                            G & M Food Service Ciro Listesine Git
+                        <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Index", "Lokum")'">
+                        Lokum Ciro Listesine Git
 
                         </button>
 
@@ -75,7 +73,7 @@
                                     </th>
                                 </tr>
                                 @foreach (var item in Model)
-                            {
+                                {
                                     <tr>
                                         <td>@Html.DisplayFor(modelItem => item.KategoriNameHelper)</td>
                                         <td>@Html.TextBoxFor(modelItem => item.TarihHelper, "{0:dd-MM-yyyy}", new { @class = "my-style", @readonly = true })</td>
@@ -86,7 +84,7 @@
                                             |@Html.ActionLink("Güncelle", "Guncelle", new { id = item.CiroidHelper })
                                         </td>
                                     </tr>
-                            }
+                                }
                             </table>
                         </div>
                         <div class="col-md-5"></div>
