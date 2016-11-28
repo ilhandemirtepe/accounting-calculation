@@ -1,0 +1,68 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AnaSayfa</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="col-md-2"></div>
+    <div class="container col-md-8">
+        <div class="panel panel-primary">
+            <div class="panel-heading text-center" style="font-weight:bold">
+                
+                <div class="col-md-12" style="background-color:#ff6a00;margin-top:15px;">
+                    <div class="col-md-11"> Consultant G & M Finans Bilgileri</div>
+                    <div class="col-md-1">@Html.ActionLink("Çıkış Yap", "LogOut", "Login", new { @class = "btn btn-primary" })</div>
+                </div>
+         
+            
+     
+            </div>
+            <div class="panel-body">
+                
+                   
+                    <div class="col-md-8">
+
+                        <div class="container">
+                            <div class="row" style="margin-top:30px;">
+                                <div class="col-md-4">
+                                    <ul class="list-group">
+
+                                        <li class="list-group-item">
+                                            <a style="background-color:#ff6a00;color:#ffffff" href="#" class="list-group-item list-group-item-action list-group-item-info">Listeleme İşlemleri</a>
+                                            <a href="@Url.Action("YasamaDongusuListele2", "Merkez")" class="list-group-item list-group-item-action list-group-item-warning">Tüm Şubelerin Toplamını Bul</a>
+                                            <a href="@Url.Action("YasamaDongusuListele", "Merkez")" class="list-group-item list-group-item-action list-group-item-warning">Şubeleri Ayrı,Ayrı Toplamlarını Bul</a>
+                                            <a href="@Url.Action("NotListele", "Merkez")" class="list-group-item list-group-item-action list-group-item-warning"> Şubelere Göre Notları Listele</a>
+                                            <a href="@Url.Action("Index","AdminCRUD")" class="list-group-item list-group-item-action list-group-item-warning">Admin İşlemleri</a>
+                                            <a href="@Url.Action("Index","Merkez")" class="list-group-item list-group-item-action list-group-item-warning">Databaseden Verileri Sil</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-4">
+                                    <ul class="list-group">
+
+                                        <li class="list-group-item">
+                                            <a style="background-color:#ff6a00;color:#ffffff" href="#" class="list-group-item list-group-item-action list-group-item-success">Raporlama İşlemleri</a>
+                                            <a href="@Url.Action("YasamaDongusuListele3", "Merkez")" class="list-group-item list-group-item-action list-group-item-warning">Genel Rapor İşlemleri</a>
+                                            <a href="@Url.Action("YasamaDongusuListele1","Merkez")" class="list-group-item list-group-item-action list-group-item-warning">Şubelere Göre Rapor İşlemleri</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+              
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</body>
+</html>
