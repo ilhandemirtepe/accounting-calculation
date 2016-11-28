@@ -4,6 +4,7 @@
     ViewBag.Title = "Ekle";
 
 }
+
 <link href="~/Content/bootstrap.css" rel="stylesheet" />
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 <style type="text/css">
@@ -18,7 +19,7 @@
 
                 <div class="panel panel-warning">
                     <!-- Default panel contents -->
-                    <div class="panel-heading" style="background-color:#ff6a00;text-align:center;color:#000000">Bayram Bal Bulvar216  </div>
+                    <div class="panel-heading" style="background-color:#ff6a00;text-align:center;color:#000000">G & M Consultant  </div>
                     <div class="panel-heading" style="background-color:#ff6a00;color:#000000">>>>> EKLEME İŞLEMİ </div>
                     @using (Html.BeginForm())
                     {
@@ -26,24 +27,18 @@
                         @Html.ValidationSummary(true)
                         <div class="panel-body" style="color:#000000">
                             <div class="col-md-12" style="background-color:#ff6a00">
-
-
-                            
-
+                          
+                             
                                 <div class="col-md-1"></div>
-
                                 <div class="col-md-10">
-
-
                                     <div class="col-md-6">
                                         <div class="form-horizontal" style="margin-top:20px;margin-bottom:30px;">
                                             <div class="form-group">
+                                                @*<label class="control-label col-sm-4 ">Şube Seçiniz:</label>*@
+                                                <div class="col-sm-6">
 
-
-
-
-                                                @Html.DropDownList("rollerim", null, "----şube seçiniz---", new { @class = "form-control deneye", required = "", })
-
+                                                    @Html.DropDownList("rollerim", null, "----şube seçiniz---", new { @class = "form-control deneye", required = "" })
+                                                </div>
                                             </div>
 
                                             <div class="form-group">

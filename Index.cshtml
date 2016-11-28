@@ -13,17 +13,15 @@
 <link href="~/Content/bootstrap.css" rel="stylesheet" />
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 
-
 <style type="text/css">
-     .gizle{
-        display:none;
-    }
     .my-style {
         outline: none;
         border: none;
         width: 75%;
     }
-
+    .gizle{
+        display:none;
+    }
     font-face {
         font-family: 'AbakuTLSymSansRegular';
         src: url('fonts/abakutlsymsans-regular-AbakuTLSymSans.eot');
@@ -39,14 +37,17 @@
         color: #ff6a00;
     }
 </style>
+
 <div class="container">
+
+
     <div class="panel panel-warning">
         <!-- Default panel contents -->
         <div class="panel-heading" style="background-color:#ff6a00;text-align:center;color:#000000">
             <div class="row">
                 <div class="col-md-12">
                     <div class="col-md-2"> </div>
-                    <div class="col-md-9 text-center" style="font-family:'Segoe Script';font-weight:bolder"> <h4>Bayram Bal Bulvar216</h4> </div>
+                    <div class="col-md-9 text-center" style="font-family:'Segoe Script';font-weight:bolder"> <h4>G & M Consultant</h4> </div>
 
                     <div class="col-md-1 text-center">
                         @Html.ActionLink("Çıkış Yap", "LogOut", "Login", new { @class = "btn btn-primary" })
@@ -56,13 +57,14 @@
                 </div>
             </div>
         </div>
+
         <div class="panel-heading" style="background-color:#ff6a00;color:#000000">>>>> LİSTELEME İŞLEMİ </div>
         <div class="panel-body" style="color:#000000">
-            <button type="button" class="btn btn-warning" onclick="location.href='@Url.Action("Ekle", "BayramBal")'">
+            <button type="button" class="btn btn-warning" onclick="location.href='@Url.Action("Ekle", "GMConsultant")'">
                 Gün Sonu Ciroları eklemek için tıklayınız
 
             </button>
-            <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("NotListele", "BayramBal")'">
+            <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("NotListele", "GMConsultant")'">
                 Notlar Listesine Gitmek  için tıklayınız
 
             </button>
@@ -71,10 +73,12 @@
 
 
         </div>
+
+
     </div>
     <table class="table table-striped table-bordered">
         <tr class="success">
-           
+        
             <th>
                 Şube Adı
             </th>
@@ -109,7 +113,7 @@
                 Tahsil Tutar
             </th>
             <th>
-                S|G
+                Sil|Güncelle
             </th>
 
         </tr>
@@ -166,7 +170,11 @@
         }
 
     </table>
+
+
+
     @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
 </div>
+
 
 
