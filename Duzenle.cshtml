@@ -1,16 +1,17 @@
-﻿@model CiroHesaplama.Models.Sube
+﻿
+
+@model CiroHesaplama.Models.Sube
+
 
 @{
-    ViewBag.Title = "Ekle";
+    ViewBag.Title = "Duzenle";
 
 }
+<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 <link href="~/Content/bootstrap.css" rel="stylesheet" />
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
-<style type="text/css">
-    .deneye {
-        display: none;
-    }
-</style>
 <div class="container">
     <div class="content">
         <div class="container-fluid">
@@ -18,100 +19,86 @@
 
                 <div class="panel panel-warning">
                     <!-- Default panel contents -->
-                    <div class="panel-heading" style="background-color:#ff6a00;text-align:center;color:#000000">Bayram Bal Bulvar216  </div>
-                    <div class="panel-heading" style="background-color:#ff6a00;color:#000000">>>>> EKLEME İŞLEMİ </div>
+                    <div class="panel-heading" style="background-color:#ff6a00;text-align:center;color:#000000">Bayram Bal Bulvar216 </div>
+                    <div class="panel-heading" style="background-color:#ff6a00;color:#000000">>>>> GÜNCELLEME İŞLEMİ </div>
                     @using (Html.BeginForm())
-                    {
+                {
                         @Html.AntiForgeryToken()
                         @Html.ValidationSummary(true)
+                        @Html.HiddenFor(model => model.Ciroid)
                         <div class="panel-body" style="color:#000000">
                             <div class="col-md-12" style="background-color:#ff6a00">
-
-
-                            
-
                                 <div class="col-md-1"></div>
-
                                 <div class="col-md-10">
-
-
                                     <div class="col-md-6">
                                         <div class="form-horizontal" style="margin-top:20px;margin-bottom:30px;">
-                                            <div class="form-group">
-
-
-
-
-                                                @Html.DropDownList("rollerim", null, "----şube seçiniz---", new { @class = "form-control deneye", required = "", })
-
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="control-label col-sm-4 ">Tarih Seçiniz:</label>
+                                            <div class="form-group" style="display:none;">
+                                                <label class="control-label col-sm-4 ">Şube Seçiniz:</label>
                                                 <div class="col-sm-6">
 
-                                                    @Html.TextBox("textBoxDogum", null, "", new { @class = "form-control", required = "tarih seçiniz" })
-
+                                                    @Html.DropDownList("rollerim", null, new { @class = "form-control", required = "" })
                                                 </div>
                                             </div>
+
+                                        
                                             <div class="form-group">
                                                 <label class="control-label col-sm-4 ">Fatura Sayısı:</label>
                                                 <div class="col-sm-6">
-                                                    @Html.TextBox("txtFaturaSayimiz", null, new { @class = "form-control ", required = "" })
-
+                                                 @Html.TextBoxFor(model => model.FaturaSayisi, new { @class = "form-control", required = "" })
 
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label col-sm-4 ">Fatura Tutar:</label>
                                                 <div class="col-sm-6">
-                                                    @Html.TextBox("txtFaturaTutarimiz", null, new { @class = "form-control", required = "" })
+                                                    @Html.TextBoxFor(model => model.FaturaTutar, new { @class = "form-control", required = "" })
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label col-sm-4 ">   Nakit:</label>
                                                 <div class="col-sm-6">
-                                                    @Html.TextBox("txtNakitimiz", null, new { @class = "form-control", required = "" })
+                                                    @Html.TextBoxFor(model => model.Nakit, new { @class = "form-control", required = "" })
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label col-sm-4 ">Kredi Kartı:</label>
                                                 <div class="col-sm-6">
-                                                    @Html.TextBox("txtKrediKartimiz", null, new { @class = "form-control", required = "" })
+                                                    @Html.TextBoxFor(model => model.KrediKarti, new { @class = "form-control", required = "" })
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label col-sm-4 ">Çek:</label>
                                                 <div class="col-sm-6">
-                                                    @Html.TextBox("txtCekimize", null, new { @class = "form-control", required = "" })
+                                                    @Html.TextBoxFor(model => model.Cek, new { @class = "form-control" ,required = "" })
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label col-sm-4 ">Havale:</label>
                                                 <div class="col-sm-6">
-                                                    @Html.TextBox("txtHavalemiz", null, new { @class = "form-control", required = "" })
+                                                    @Html.TextBoxFor(model => model.Havale, new { @class = "form-control" , required = "" })
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="form-horizontal" style="margin-top:30px;margin-bottom:30px;">
+                                        <div class="form-horizontal" style="margin-top:20px;margin-bottom:30px;">
                                             <div class="form-group">
                                                 <label class="control-label col-sm-4 ">Harcama Adet:</label>
                                                 <div class="col-sm-6">
-                                                    @Html.TextBox("txtHarcamaAdetimiz", null, new { @class = "form-control", required = "" })
+                                                    @Html.TextBoxFor(model => model.HarcamaAdet, new { @class = "form-control", required = "" })
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label col-sm-4">Harcama Tutar:</label>
                                                 <div class="col-sm-6">
-                                                    @Html.TextBox("txtHarcamaTutarimiz", null, new { @class = "form-control", required = "" })
+                                                    @Html.TextBoxFor(model => model.HarcamaTutar, new { @class = "form-control", required = "" })
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label col-sm-4 ">Not:</label>
                                                 <div class="col-sm-6">
-                                                    @Html.TextArea("txtNotumuz", null, new { @class = "form-control", @rows = "10" })
+                                                    @Html.TextAreaFor(model => model.GunlukTutulanNot, new { @class = "form-control", @rows = "8" })
+
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -121,14 +108,7 @@
 
                                                 </div>
                                             </div>
-                                            <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
-                                            <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-                                            <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-                                            <script type="text/javascript">
-                                                $(document).ready(function () {
-                                                    $("#textBoxDogum").datepicker({ dateFormat: 'dd-mm-yy' }.valueOf());
-                                                });
-                                            </script>
+                                         
 
                                         </div>
                                     </div>
@@ -138,7 +118,7 @@
 
 
                         </div>
-                    }
+                }
                 </div>
 
             </div>

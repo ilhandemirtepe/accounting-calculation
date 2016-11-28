@@ -1,7 +1,7 @@
 ﻿@using PagedList;
 @using PagedList.Mvc;
 
-@model IPagedList<CiroHesaplama.Models.DIO.AdminHelperim>
+@model IPagedList<CiroHesaplama.Models.DIO.SubeHelperim>
 
 <link href="~/Content/bootstrap.css" rel="stylesheet" />
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
@@ -13,13 +13,30 @@
 <link href="~/Content/bootstrap.css" rel="stylesheet" />
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 
-<style>
+
+<style type="text/css">
+     .gizle{
+        display:none;
+    }
     .my-style {
         outline: none;
         border: none;
+        width: 75%;
     }
-    .gizle{
-        display:none;
+
+    font-face {
+        font-family: 'AbakuTLSymSansRegular';
+        src: url('fonts/abakutlsymsans-regular-AbakuTLSymSans.eot');
+        src: url('fonts/abakutlsymsans-regular-AbakuTLSymSans.eot?#iefix') format('embedded-opentype'), url('fonts/abakutlsymsans-regular-AbakuTLSymSans.ttf') format('truetype'), url('fonts/abakutlsymsans-regular-AbakuTLSymSans.svg#AbakuTLSymSansRegular') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    .TL:after {
+        font-family: "AbakuTLSymSansRegular",Verdana,Arial;
+        content: "tl";
+        padding-left: 3px;
+        color: #ff6a00;
     }
 </style>
 <div class="container">
@@ -29,7 +46,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="col-md-2"> </div>
-                    <div class="col-md-9 text-center" style="font-family:'Segoe Script';font-weight:bolder"> <h4>Merkez</h4> </div>
+                    <div class="col-md-9 text-center" style="font-family:'Segoe Script';font-weight:bolder"> <h4>Bayram Bal Bulvar216</h4> </div>
 
                     <div class="col-md-1 text-center">
                         @Html.ActionLink("Çıkış Yap", "LogOut", "Login", new { @class = "btn btn-primary" })
@@ -41,61 +58,114 @@
         </div>
         <div class="panel-heading" style="background-color:#ff6a00;color:#000000">>>>> LİSTELEME İŞLEMİ </div>
         <div class="panel-body" style="color:#000000">
-            <button type="button" class="btn btn-warning" onclick="location.href='@Url.Action("AnaSayfa", "Merkez")'">
-                Anasayfaya Git
+            <button type="button" class="btn btn-warning" onclick="location.href='@Url.Action("Ekle", "BayramBal")'">
+                Gün Sonu Ciroları eklemek için tıklayınız
+
             </button>
-            <button type="button" class="btn btn-warning" onclick="location.href='@Url.Action("Ekle", "AdminCRUD")'">
-                Yeni Admin Ekle
+            <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("NotListele", "BayramBal")'">
+                Notlar Listesine Gitmek  için tıklayınız
+
             </button>
-            
-            
+
+
+
+
         </div>
     </div>
-    <div class="col-md-7">
-        <table class="table table-striped table-bordered">
-            <tr>
+    <table class="table table-striped table-bordered">
+        <tr class="success">
+           
+            <th>
+                Şube Adı
+            </th>
+            <th width="%10">
+                Tarih
+            </th>
+            <th>
+                Fatura Sayısı
+            </th>
+            <th>
+                Fatura Tutar
+            </th>
+            <th>
+                Nakit
+            </th>
+            <th>
+                Kredi Kartı
+            </th>
+            <th>
+                Çek
+            </th>
+            <th>
+                Havale
+            </th>
+            <th>
+                Harcama Adet
+            </th>
+            <th>
+                Harcama Tutar
+            </th>
+            <th>
+                Tahsil Tutar
+            </th>
+            <th>
+                S|G
+            </th>
 
-                <th width="30%" style="text-align:center">
-                    Şube Adı
-                </th>
-                <th width="30%" style="text-align:center">
-                    Kullanıcı Adı
-                </th>
-                <th width="30%" style="text-align:center">
-                    Şifre
-                </th>
-                <th width="10%" style="text-align:center">
-                    Sil
-                </th>
+        </tr>
 
-            </tr>
-
-            @foreach (var item in Model)
+        @foreach (var item in Model)
         {
-                <tr style="text-align:center">
-                    <td class="gizle">
-                        @Html.DisplayFor(modelItem => item.AdminidNumberViewModel)
-                    </td>
-                    <td width="30%" style="text-align:center">
-                        @Html.DisplayFor(modelItem => item.AdminKategoriNameViewModel)
-                    </td>
-
-                    <td width="30%" style="text-align:center">
-                        @Html.DisplayFor(modelItem => item.AdminUserNameViewModel)
-                    </td>
-                    <td width="30%" style="text-align:center">
-                        @Html.DisplayFor(modelItem => item.AdminPassWordViewModel)
-                    </td>
-                    <td width="10%" style="text-align:center">
+            <tr style="text-align:center">
+                <td class="gizle">
+                    @Html.DisplayFor(modelItem => item.CiroidHelper)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KategoriNameHelper)
+                </td>
+                <td width="%10">
+                    @Html.TextBoxFor(modelItem => item.TarihHelper, "{0:dd-MM-yyyy}", new { @class = "my-style", @readonly = true })
 
 
-                        @Html.ActionLink("Sil", "Sil", new { id = item.AdminidNumberViewModel })
-                    </td>
-                </tr>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FaturaSayisiHelper)
+                </td>
+                <td class="TL">
+                    @Html.DisplayFor(modelItem => item.FaturaTutarHelper)
+                </td>
+                <td class="TL">
+                    @Html.DisplayFor(modelItem => item.NakitHelper)
+                </td>
+                <td class="TL">
+                    @Html.DisplayFor(modelItem => item.KrediKartiHelper)
+                </td>
+                <td class="TL">
+                    @Html.DisplayFor(modelItem => item.CekHelper)
+                </td>
+                <td class="TL">
+                    @Html.DisplayFor(modelItem => item.HavaleHelper)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HarcamaAdetHelper)
+                </td>
+                <td class="TL">
+                    @Html.DisplayFor(modelItem => item.HarcamaTutarHelper)
+                </td>
+                <td class="TL">
+                    @Html.DisplayFor(modelItem => item.GunlukTahsilatTutarHelper)
+                </td>
+
+                <td>
+
+
+                    @Html.ActionLink("Sil", "Sil", new { id = item.CiroidHelper }) |
+                    @Html.ActionLink("Güncelle", "Duzenle", new { id = item.CiroidHelper })
+                </td>
+            </tr>
         }
 
-        </table>
-    </div>
+    </table>
     @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
 </div>
 

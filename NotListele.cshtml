@@ -1,0 +1,100 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+
+@model IPagedList<CiroHesaplama.Models.DIO.SubeHelperim>
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+@{
+    ViewBag.Title = "NotListele";
+   
+}
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+<style>
+    .my-style {
+        outline: none;
+        border: none;
+    }
+</style>
+<div class="container">
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="panel panel-warning">
+                    <!-- Default panel contents -->
+                    <div class="panel-heading" style="background-color:#ff6a00;text-align:center;color:#000000">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="col-md-2"> </div>
+                                <div class="col-md-9 text-center" style="font-family:'Segoe Script';font-weight:bolder"> <h4>Bayram Bal Bulvar216</h4> </div>
+
+                                <div class="col-md-1 text-center">
+                                    @Html.ActionLink("Çıkış Yap", "LogOut", "Login", new { @class = "btn btn-primary" })
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-heading" style="background-color:#ff6a00;color:#000000">>>>> LİSTELEME İŞLEMİ </div>
+                    <div class="panel-body">
+                        <button type="button" class="btn btn-warning" onclick="location.href='@Url.Action("Ekle", "BayramBal")'">
+                            Gün Sonu Ciroları eklemek için tıklayınız
+
+                        </button>
+                        <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Index", "BayramBal")'">
+                            Bayram Bal Bulvar216 Ciro Listesine Git
+
+                        </button>
+
+
+                        <div class="col-md-9">
+
+
+                            <table class="table table-striped table-bordered">
+                                <tr class="success">
+
+                                    <th>
+                                        Şube Adı
+                                    </th>
+                                    <th>
+                                        Tarih
+                                    </th>
+                                    <th>
+                                        Not
+                                    </th>
+                                    <th>
+                                        Sil | Güncelle
+                                    </th>
+                                </tr>
+                                @foreach (var item in Model)
+                            {
+                                    <tr>
+                                        <td>@Html.DisplayFor(modelItem => item.KategoriNameHelper)</td>
+                                        <td>@Html.TextBoxFor(modelItem => item.TarihHelper, "{0:dd-MM-yyyy}", new { @class = "my-style", @readonly = true })</td>
+
+                                        <td>@Html.DisplayFor(modelItem => item.GunlukNotHelper)</td>
+                                        <td>
+                                            @Html.ActionLink("Sil", "Sil", new { id = item.CiroidHelper })
+                                            |@Html.ActionLink("Güncelle", "Guncelle", new { id = item.CiroidHelper })
+                                        </td>
+                                    </tr>
+                            }
+                            </table>
+                        </div>
+                        <div class="col-md-5"></div>
+                    </div>
+                </div>
+
+                @Html.PagedListPager(Model, page => Url.Action("NotListele", new { page }))
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
