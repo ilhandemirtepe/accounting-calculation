@@ -2,7 +2,7 @@
 
 @{
     ViewBag.Title = "Ekle";
-
+ 
 }
 
 <link href="~/Content/bootstrap.css" rel="stylesheet" />
@@ -19,15 +19,14 @@
 
                 <div class="panel panel-warning">
                     <!-- Default panel contents -->
-                    <div class="panel-heading" style="background-color:#ff6a00;text-align:center;color:#000000">G & M Consultant  </div>
+                    <div class="panel-heading" style="background-color:#ff6a00;text-align:center;color:#000000">G & M Food Service </div>
                     <div class="panel-heading" style="background-color:#ff6a00;color:#000000">>>>> EKLEME İŞLEMİ </div>
                     @using (Html.BeginForm())
-                    {
+                {
                         @Html.AntiForgeryToken()
                         @Html.ValidationSummary(true)
                         <div class="panel-body" style="color:#000000">
                             <div class="col-md-12" style="background-color:#ff6a00">
-                          
                              
                                 <div class="col-md-1"></div>
                                 <div class="col-md-10">
@@ -45,7 +44,7 @@
                                                 <label class="control-label col-sm-4 ">Tarih Seçiniz:</label>
                                                 <div class="col-sm-6">
 
-                                                    @Html.TextBox("textBoxDogum", null, "", new { @class = "form-control", required = "tarih seçiniz" })
+                                                    @Html.TextBox("textBoxDogum",null, "", new { @class = "form-control", required = "tarih seçiniz" })
 
                                                 </div>
                                             </div>
@@ -120,9 +119,9 @@
                                             <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
                                             <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
                                             <script type="text/javascript">
-                                                $(document).ready(function () {
-                                                    $("#textBoxDogum").datepicker({ dateFormat: 'dd-mm-yy' }.valueOf());
-                                                });
+                                            $(document).ready(function () {
+                                                $("#textBoxDogum").datepicker({ dateFormat: 'dd-mm-yy' }.valueOf());
+                                            });
                                             </script>
 
                                         </div>
@@ -133,7 +132,7 @@
 
 
                         </div>
-                    }
+                }
                 </div>
 
             </div>
